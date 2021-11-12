@@ -40,7 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
    
 });
 
-// ログイン済みの状態
+// ログイン済みの状態。
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
