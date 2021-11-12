@@ -1,0 +1,66 @@
+ul.title{
+    text-align:center;
+    font-size: 20px;
+}
+
+ul.comments{
+    list-style-type: none;
+    padding: 0;
+}
+
+table.newmake{
+    margin: auto;
+    font-size: 20px;
+}
+
+div.search{
+    text-align: center;
+}
+
+span{
+    color: chartreuse;
+}
+
+span.nolmal{
+    color: black;
+}
+
+span.caret{
+    color:black;
+}
+
+span.content{
+    color: black;
+    
+}
+
+span.comments{
+    color: black;
+    font-size: 20;
+}
+
+
+ul.disabled{
+    margin:5px 940px;
+    font-size: 26;
+}
+
+div.disabled{
+    text-align: center ;
+    display: inline-block; _display: inline;
+    
+}
+.newmake{
+    text-align: center;
+}
+
+
+/* ページ送りを中央寄せ */
+.pagination {
+    text-align: center;
+}
+
+/* ページ送りを横並びに */
+.pagination li{
+    text-align: center;
+}

@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace app\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use app\Http\Controllers\Controller;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
-class ForgotPasswordController extends Controller
+class ForgotPasswordController extends BaseController
 {
     /*
     |--------------------------------------------------------------------------
@@ -17,6 +21,9 @@ class ForgotPasswordController extends Controller
     | your application to your users. Feel free to explore this trait.
     |
     */
+
+    // BaseControllerlでも使えるようにする
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     use SendsPasswordResetEmails;
 

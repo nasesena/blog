@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace app\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use app\Http\Controllers\Controller;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Auth\ResetsPasswords;
-
-class ResetPasswordController extends Controller
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+class ResetPasswordController extends BaseController
 {
     /*
     |--------------------------------------------------------------------------
@@ -18,14 +21,17 @@ class ResetPasswordController extends Controller
     |
     */
 
+    // 認証に関するリクエストを利用する
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     use ResetsPasswords;
 
     /**
      * Where to redirect users after resetting their password.
-     *
+     * リダイレクト先postsに変更！
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.

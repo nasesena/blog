@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace app\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+//use app\Http\Controllers\Controller;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class LoginController extends BaseController
 {
     /*
     |--------------------------------------------------------------------------
@@ -18,6 +23,9 @@ class LoginController extends Controller
     |
     */
 
+    // 認証に関するリクエストを利用する
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     use AuthenticatesUsers;
 
     /**
@@ -25,7 +33,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/posts';
 
     /**
      * Create a new controller instance.
@@ -35,5 +43,35 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
+    }
+
+    // ユーザ名とメールの両方でログイン出来るようにする。
+    protected function attemptLogin(Request $request)
+    {
+    $username = $request->input($this->username());
+    $password = $request->input('password');
+
+    if(filter_var($username, \FILTER_VALIDATE_EMAIL)) {
+        $credentials = ['email' => $username, 'password' => $password];
+    } else {
+        $credentials = [$this->username() => $username, 'password' => $password];
+    }
+
+    return $this->guard()->attempt($credentials, $request->filled('remember'));
+    }
+
+    public function username(){
+        return 'name';
+    }
+
+    // ログアウトを行う。
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+        return redirect('/posts');
     }
 }
