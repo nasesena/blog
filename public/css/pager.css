@@ -8,6 +8,11 @@ ul.comments{
     padding: 0;
 }
 
+h1.head{
+    text-align:center;
+    font-size: 20px;
+}
+
 table.newmake{
     margin: auto;
     font-size: 20px;
@@ -41,7 +46,6 @@ span.comments{
 
 
 ul.disabled{
-    margin:5px 940px;
     font-size: 26;
 }
 

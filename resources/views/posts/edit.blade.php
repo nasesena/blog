@@ -23,8 +23,10 @@
     </div>
     
 
-    <!--エラーメッセージを表示！-->
+   <!--フラッシュメッセージ表示-->
     @include('posts.flash')
+
+     <!--エラーメッセージを表示！-->
     @include('posts.errormsg')
     {{Form::close()}}
     

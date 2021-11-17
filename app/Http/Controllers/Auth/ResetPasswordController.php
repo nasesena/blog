@@ -31,7 +31,7 @@ class ResetPasswordController extends BaseController
      * リダイレクト先postsに変更！
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/posts';
 
     /**
      * Create a new controller instance.

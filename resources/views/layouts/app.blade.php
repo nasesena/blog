@@ -31,7 +31,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('https://localhost:8080/posts') }}">
+                    <a class="navbar-brand" href="{{ url('https://192.168.0.168/posts') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>

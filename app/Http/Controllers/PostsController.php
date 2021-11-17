@@ -21,27 +21,64 @@ class PostsController extends BaseController
 
     // 一覧表示index,all()で全て取る！
     public function index(Request $request){
+        
         $posts = Post::all();
-
+        //dd($posts);
+        
+        
         // 検索した条件を受け取る
         $keywords = $request -> input('keywords');
         $from_date = $request -> input('from_date');
         $to_date = $request -> input('to_date');
 
-        // タイトル検索か、日付検索を行う。最初に入力チェック
+ 
+       
+                
+                 if($keywords != null){
+                    \Session::flash('msg_success','記事を見つけました');
+                     $query -> where('title','LIKE','%'.$keywords.'%')
+                    ->orWhere('content','like','%'.$keywords.'%')->paginate(20)->get();
+                } else if($keywords != null && $from_date != null && $to_date != null){
+                 // 一応all()で、全取得
+                    $posts = Post::wherebetween('created_at',[$from_date,$to_date]) 
+                    ->orderBy('id','desc')->paginate(20)->get();
+                } else{
+                    \Session::flash('msg_success','test');
+                    $posts = Post::orderBy('id', 'desc')->paginate(20);
+                }        
+
+        
+        
+
+        
+
+        /*else if($from_date != null && $to_date != null){
+            $posts = Post::wherebetween('created_at',[$from_date,$to_date]) -> paginate(20);
+        
+        // 何も入力していない場合はテーブル全体をここで取っている。
+        } else {
+            $posts = Post::orderBy('id','desc')->paginate(20);
+        }*/
+
+        // 更新時にパラメータを消さないようにする
+        //$params = array('posts'=> $posts,'keywords' => $keywords,'from_date' => $from_date,'to_date' => $to_date);
+            
+        /*
+        // タイトル検索か、日付検索を行う。最初に入力チェック 
         if($keywords != null){
             $posts = Post::where('title','like','%'.$keywords.'%')
             ->orWhere('content','like','%'.$keywords.'%')
-            ->orderBy('id','desc')->paginate(20);
+            ->orderBy('id','desc')->paginate(20)->get();
         }  else if($from_date != null && $to_date != null){
             $posts = Post::wherebetween('created_at',[$from_date,$to_date]) -> paginate(20);
         
-        // 何も入力していない場合はテーブル全体を取る。ページャーは20件まで設定する。
+        // 何も入力していない場合はテーブル全体をここで取っている。
         } else {
-        $posts = Post::orderBy('id','desc')->paginate(20);
+            $posts = Post::orderBy('id','desc')->paginate(20);
         }
-        
-        return view('posts.index', compact('posts'));
+    */
+
+        return view('posts.index', compact('posts','keywords'));
     }
 
     // 詳細表示、showとする。compact('posts')でそれぞれのURLを決める？

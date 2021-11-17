@@ -31,17 +31,23 @@ Route::get('/', function () {
 */
 
 
-// ログイン時に利用できる機能,一旦はログインユーザのみ全ての権限を付与
+Route::get('/posts', 'PostsController@index');
+
+// ログイン時に利用できる機能,作成系と削除系は権限を付与した
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('posts','PostsController', ['only' => ['index','show','store', 'create', 'update', 'destroy', 'delete', 'edit','comment']]);
+    Route::resource('/posts', 'PostsController', ['only' => ['store', 'create', 'update', 'destroy', 'delete', 'edit']]);
+    Route::post('/create','PostsController@create');
     Route::post('/comment','PostsController@comment');
-    Route::post('/index', 'PostController@index');
+    
+    
     
    
 });
 
 // ログイン済みの状態。
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+// indexとhomeは誰でも使えるようにする。ß
+Route::resource('/posts', 'PostsController', ['only' => ['index', 'show']]);
+//Route::get('/index','PostsController@index');
 
 

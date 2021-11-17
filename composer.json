@@ -6,11 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "barryvdh/laravel-debugbar": "~2.4",
+        "kylekatarnls/laravel-carbon-2": "^1.0.0",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "kylekatarnls/laravel-carbon-2": "^1.0.0",
-        "nesbot/carbon": "2.0.0-beta.2 as 1.25.0",
-        "laravelcollective/html": "5.5.*"
+        "laravelcollective/html": "5.5.*",
+        "nesbot/carbon": "2.0.0-beta.2 as 1.25.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
