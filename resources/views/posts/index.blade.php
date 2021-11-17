@@ -45,7 +45,7 @@
         {{Form::date('to_date')}}まで
         </div>
         
-        <input type="submit" value="検索">
+        {{Form::submit('検索')}}
         <!--<div>{ link_to_route('posts.create', '新規作成')}}</div>-->
    
 </form>    

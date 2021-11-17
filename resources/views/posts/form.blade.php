@@ -9,3 +9,12 @@
     <div align="center">
         {{Form::textarea('content',$post -> content)}}
     </div>
+
+    <!--入力条件に満たない場合はバリデーションを適応させる-->
+    @if($errors->has('title'))
+  <span class="text-danger">{{ $errors->first('title') }}</span>
+    @endif
+
+    @if($errors->has('content'))
+  <span class="text-danger">{{ $errors->first('content') }}</span>
+    @endif

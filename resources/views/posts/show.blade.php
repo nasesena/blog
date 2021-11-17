@@ -53,6 +53,7 @@
 {{ Form::hidden('post_id',$posts->id) }}
 {{ Form::hidden('comment_id',$id) }}
 {{ Form::submit('コメント',['class'=>'btn btn-primary btn-sm']) }} 
+
 <!--フラッシュメッセージ-->
 @include('posts.flash')
 {{ Form::close() }}

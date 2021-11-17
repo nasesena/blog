@@ -11,27 +11,6 @@
 |
 */
 
-// CRUDのルーティングをここで行う
-//Route::resource('posts', 'Controller');
-
-//アクションの実装を書くならここ！「アドレスにアクセスしたら、この処理を実行する」
-// 使えるやつを確認しよう！
-//Route::resource('posts','PostsController');
-
-
-/*
-Route::get('/', function() {
-    return view('index');
-});*/
-
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
-
-Route::get('/posts', 'PostsController@index');
 
 // ログイン時に利用できる機能,作成系と削除系は権限を付与した
 Route::group(['middleware' => 'auth'], function () {
@@ -46,8 +25,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 // ログイン済みの状態。
 Auth::routes();
-// indexとhomeは誰でも使えるようにする。ß
+// indexとhomeは誰でも使えるようにする。
 Route::resource('/posts', 'PostsController', ['only' => ['index', 'show']]);
-//Route::get('/index','PostsController@index');
+Route::get('/index','PostsController@index');
 
 

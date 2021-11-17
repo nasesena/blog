@@ -31,20 +31,19 @@ class PostsController extends BaseController
         $from_date = $request -> input('from_date');
         $to_date = $request -> input('to_date');
 
- 
-       
-                
                  if($keywords != null){
                     \Session::flash('msg_success','記事を見つけました');
-                     $query -> where('title','LIKE','%'.$keywords.'%')
+                     $query -> where('title','LIKE',"%$keywords%")
                     ->orWhere('content','like','%'.$keywords.'%')->paginate(20)->get();
                 } else if($keywords != null && $from_date != null && $to_date != null){
-                 // 一応all()で、全取得
+
+                    // 日付検索のみを適応する場合
                     $posts = Post::wherebetween('created_at',[$from_date,$to_date]) 
                     ->orderBy('id','desc')->paginate(20)->get();
                 } else{
-                    \Session::flash('msg_success','test');
-                    $posts = Post::orderBy('id', 'desc')->paginate(20);
+                    // ない場合はall()で取得する。
+                    //\Session::flash('msg_success','ここが実行される');
+                    $posts = Post::orderBy('id','desc')->paginate(20);
                 }        
 
         
