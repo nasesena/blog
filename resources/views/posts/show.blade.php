@@ -16,13 +16,14 @@
 </ul>
 
 <!--コメント表示-->
-<!--ID:名前:日付で公開-->
+<!--連番:名前:日付で公開-->
 <ul class="comments">
 <hr>
 <span class = "content">〜みんなのコメント広場〜</span>
-@foreach($comments as $comment)
+@foreach($comments as $key=>$comment)
 <p>
-    [{{$comment->comment_id}}]ユーザー名：<span>{{$comment->name}}</span>  {{$comment->created_at}}<br>
+    [{{$key+1}}]ユーザー名：<span>{{$comment->name}}</span>  {{$comment->created_at}}<br>
+    <a href="{{ action('PostsController@destroy', $comment->id) }}">[x]</a>
 </p>
 <p>
     <span class="comments">{{$comment->comment}}</span>
@@ -42,12 +43,21 @@
     名前：{{ $user->name }}
 </p>
 <p>
-  コメント：<br>
-  {{ Form::textarea('comment') }}
-  <!--ログインしてないときのエラー-->
-  @if($errors->has('comment'))
-  <span class="text-danger">{{ $errors->first('comment') }}</span>
-  @endif
+コメント：<br>
+{{ Form::textarea('comment') }}
+
+
+		
+    
+
+<form method="post" action="{{ url('/delete', $comment->id )}}" id="form_{{ $comment->id }}">
+        {{ csrf_field() }}
+        {{ method_field('delete') }}
+</form>
+<!--ログインしてないときのエラー-->
+@if($errors->has('comment'))
+<span class="text-danger">{{ $errors->first('comment') }}</span>
+@endif
 </p>
 {{ Form::hidden('name',$user->name) }}
 {{ Form::hidden('post_id',$posts->id) }}

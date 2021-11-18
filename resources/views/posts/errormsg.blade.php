@@ -7,12 +7,12 @@
 @if ($errors->any())
 <section style="border: 1px red solid">
 	<table style="color:red" align = "center"> 
-	    <div class="alert alert-danger">
-	        <th>
-	            @foreach ($errors->all() as $error)
+		<div class="alert alert-danger">
+			<th>
+			@foreach ($errors->all() as $error)
 	                <li>{{ $error }}</li>
 	            @endforeach
-	        </th>
-	    </div>
+			</th>
+		</div>
 	@endif
 

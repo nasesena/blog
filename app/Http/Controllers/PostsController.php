@@ -31,9 +31,9 @@ class PostsController extends BaseController
         $from_date = $request -> input('from_date');
         $to_date = $request -> input('to_date');
 
-                 if($keywords != null){
+                if($keywords != null){
                     \Session::flash('msg_success','記事を見つけました');
-                     $query -> where('title','LIKE',"%$keywords%")
+                        $query -> where('title','LIKE',"%$keywords%")
                     ->orWhere('content','like','%'.$keywords.'%')->paginate(20)->get();
                 } else if($keywords != null && $from_date != null && $to_date != null){
 
@@ -93,8 +93,8 @@ class PostsController extends BaseController
 
     // 編集画面、editとする
     public function edit(Post $post){
-       
-     return view('posts.edit',compact('post'));
+
+    return view('posts.edit',compact('post'));
     }
 
     // 更新メソッド、フラッシュメッセージを入れる
@@ -134,7 +134,7 @@ class PostsController extends BaseController
         ],[
             'title.required' => 'タイトルは、「３文字以上30文字以下を入力してください！」',
             'content.required'  => '記事は「必須項目」です！必ず１文字以上は入力しましょう！',
-     ]);
+    ]);
 
         $post = Post::create($request->all());
         \Session::flash('msg_success','登録完了！');

@@ -41,13 +41,13 @@
     <div>
     日付指定する場合は以下を選択
         <div>
-       {{Form::date('from_date')}}以降
+    {{Form::date('from_date')}}以降
         {{Form::date('to_date')}}まで
         </div>
         
         {{Form::submit('検索')}}
         <!--<div>{ link_to_route('posts.create', '新規作成')}}</div>-->
-   
+
 </form>    
     </div>
 </div>
@@ -62,12 +62,11 @@
 <div align = "center">
 
 <form action=" method="GET"　align="center">
-   ワード検索：<input type="text" name="keywords" size="30" align="center">
-   <br>
+ワード検索：<input type="text" name="keywords" size="30" align="center"> <br>
 <form action="" method="GET"　align="center">
-   日付検索：
-   <input type="text" name="from_date" size="30" align="center">
-   〜
+日付検索：
+<input type="text" name="from_date" size="30" align="center">
+〜
     <input type="text" name="to_date" size="30" align="center">
     <input type="submit" value="検索">
 </form>
@@ -90,10 +89,10 @@
                 
                 {{Form::close()}}
             </td>
-           
+
     </tr>
     @endforeach    
-   
+
 </table>
 
 

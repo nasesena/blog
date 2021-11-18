@@ -9,6 +9,5 @@ $(function(){
     history.pushState(null, null, null);
     window.alert('恐れ入りますが、ブラウザバックは出来ません。終了する場合はブラウザを閉じてください。');
   });
- });
- </script>
- 
+});
+</script> 

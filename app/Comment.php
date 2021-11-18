@@ -14,7 +14,7 @@ class Comment extends Model
     protected $table = 'comments';
 
 
- /**
+/**
   * 代入するカラム
   */
     protected $fillable = [

@@ -1837,7 +1837,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Symfony\\Component\\cssSelector\\": ""
+                    "Symfony\\Component\\CssSelector\\": ""
                 },
                 "exclude-from-classmap": [
                     "/Tests/"
@@ -1861,7 +1861,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Converts css selectors to XPath expressions",
+            "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/css-selector/tree/v5.3.4"
@@ -3439,12 +3439,12 @@
             "version": "2.2.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/tijsverkoyen/cssToInlineStyles.git",
+                "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
                 "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tijsverkoyen/cssToInlineStyles/zipball/b43b05cf43c1b6d849478965062b6ef73e223bb5",
+                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/b43b05cf43c1b6d849478965062b6ef73e223bb5",
                 "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5",
                 "shasum": ""
             },
@@ -3465,7 +3465,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "TijsVerkoyen\\cssToInlineStyles\\": "src"
+                    "TijsVerkoyen\\CssToInlineStyles\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3479,11 +3479,11 @@
                     "role": "Developer"
                 }
             ],
-            "description": "cssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
-            "homepage": "https://github.com/tijsverkoyen/cssToInlineStyles",
+            "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
+            "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "support": {
-                "issues": "https://github.com/tijsverkoyen/cssToInlineStyles/issues",
-                "source": "https://github.com/tijsverkoyen/cssToInlineStyles/tree/2.2.3"
+                "issues": "https://github.com/tijsverkoyen/CssToInlineStyles/issues",
+                "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.3"
             },
             "time": "2020-07-13T06:12:54+00:00"
         },
